@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_primary"
+    android:padding="16dp"
+    tools:context=".ui.breed.fragment.DogBreedsDetailFragment">
+
+    <ImageView
+        android:id="@+id/dog_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/breed_title"
+        style="@style/Widget.TextView.20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/Breeds"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dog_image" />
+
+    <TextView
+        android:id="@+id/breed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:theme="@style/Widget.TextView.16"
+        app:layout_constraintBottom_toBottomOf="@id/breed_title"
+        app:layout_constraintStart_toEndOf="@id/breed_title"
+        app:layout_constraintTop_toTopOf="@id/breed_title"
+        tools:text="@tools:sample/first_names" />
+
+    <TextView
+        android:id="@+id/id_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/id_breed"
+        android:textStyle="bold"
+        android:theme="@style/Widget.TextView.20"
+        app:layout_constraintBottom_toBottomOf="@id/breed_title"
+        app:layout_constraintEnd_toStartOf="@+id/id_text"
+        app:layout_constraintTop_toTopOf="@id/breed_title" />
+
+    <TextView
+        android:id="@+id/id_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/Widget.TextView.16"
+        app:layout_constraintBottom_toBottomOf="@id/id_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dog_image"
+        app:layout_constraintTop_toTopOf="@id/id_title"
+        tools:text="123" />
+
+
+    <TextView
+        android:id="@+id/weight_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/weight_title"
+        android:textStyle="bold"
+        android:theme="@style/Widget.TextView.20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/breed_title" />
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/weight"
+        android:theme="@style/Widget.TextView.16"
+        app:layout_constraintBottom_toBottomOf="@id/weight_title"
+        app:layout_constraintStart_toEndOf="@id/weight_title"
+        app:layout_constraintTop_toTopOf="@id/weight_title"
+        tools:text="12 кг." />
+
+    <TextView
+        android:id="@+id/height_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/height_title"
+        android:textStyle="bold"
+        android:theme="@style/Widget.TextView.20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/weight_title" />
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/height"
+        android:theme="@style/Widget.TextView.16"
+        app:layout_constraintBottom_toBottomOf="@id/height_title"
+        app:layout_constraintStart_toEndOf="@id/height_title"
+        app:layout_constraintTop_toTopOf="@id/height_title"
+        tools:text="123 см." />
+
+    <TextView
+        android:id="@+id/age_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/age_title"
+        android:textStyle="bold"
+        android:theme="@style/Widget.TextView.20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/height_title" />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:theme="@style/Widget.TextView.16"
+        app:layout_constraintBottom_toBottomOf="@id/age_title"
+        app:layout_constraintStart_toEndOf="@id/age_title"
+        app:layout_constraintTop_toTopOf="@id/age_title"
+        tools:text="2 г." />
+
+    <TextView
+        android:id="@+id/temperament_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/temperament"
+        android:textStyle="bold"
+        android:theme="@style/Widget.TextView.20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/age_title" />
+
+    <TextView
+        android:id="@+id/temperament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:theme="@style/Widget.TextView.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/temperament_title"
+        tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:id="@+id/origin_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/origin"
+        android:textStyle="bold"
+        android:theme="@style/Widget.TextView.20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/temperament" />
+
+    <TextView
+        android:id="@+id/origin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:theme="@style/Widget.TextView.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/origin_title"
+        tools:text="@tools:sample/lorem" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

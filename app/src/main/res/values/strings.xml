@@ -3,4 +3,15 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="Breeds">Порода:</string>
+    <string name="id_breed">id:</string>
+    <string name="temperament">Характер:</string>
+    <string name="weight_title">Вес:</string>
+    <string name="height_title">Рост:</string>
+    <string name="origin">Места обитания:</string>
+    <string name="age_title">Возраст:</string>
+    <string name="weight">%1$d кг.</string>
+    <string name="height">%1$d см.</string>
+    <string name="breeds_label">Породы</string>
+    <string name="breed_detail_label">Информация о породе</string>
 </resources>
