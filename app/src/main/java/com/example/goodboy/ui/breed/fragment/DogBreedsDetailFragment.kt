@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import android.widget.FrameLayout
 import coil.load
 import com.example.goodboy.R
 import com.example.goodboy.databinding.FragmentDogBreedsDetailBinding
@@ -16,8 +16,9 @@ import com.example.goodboy.ui.breed.viewstate.DogBreedDetailViewState
 class DogBreedsDetailFragment : BaseFragment<DogBreedsViewModel.Action>() {
 
     private lateinit var binding: FragmentDogBreedsDetailBinding
+    private lateinit var progress: FrameLayout
 
-    private val viewModel: DogBreedsDetailViewModel by lazy{
+    private val viewModel: DogBreedsDetailViewModel by lazy {
         DogBreedsDetailViewModel(::getBreed)
     }
 
@@ -25,7 +26,9 @@ class DogBreedsDetailFragment : BaseFragment<DogBreedsViewModel.Action>() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentDogBreedsDetailBinding.inflate(inflater, container, false)
+        progress = binding.progressOverlay.progress
 
+        progress.visibility = View.VISIBLE
         viewModel.dog.observeViewState(::handleViewState)
 
         return binding.root
@@ -44,6 +47,7 @@ class DogBreedsDetailFragment : BaseFragment<DogBreedsViewModel.Action>() {
                     height.text = dog.height?.metric
                     temperament.text = dog.temperament
                     origin.text = dog.origin
+                    progress.visibility = View.GONE
                 }
             }
         }

@@ -63,7 +63,6 @@
         app:layout_constraintTop_toTopOf="@id/id_title"
         tools:text="123" />
 
-
     <TextView
         android:id="@+id/weight_title"
         android:layout_width="wrap_content"
@@ -173,5 +172,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/origin_title"
         tools:text="@tools:sample/lorem" />
+
+    <include
+        android:id="@+id/progress_overlay"
+        layout="@layout/progress_overlay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
