@@ -1,6 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.GoodBoy" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:textColor">@color/label_primary</item>
+        
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,5 +14,29 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Widget.TextView" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Widget.TextView.32" parent="Widget.TextView">
+        <item name="android:textSize">32sp</item>
+        <item name="lineHeight">38sp</item>
+    </style>
+
+    <style name="Widget.TextView.20" parent="Widget.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">32sp</item>
+    </style>
+
+    <style name="Widget.TextView.16" parent="Widget.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <style name="Widget.TextView.14" parent="Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
     </style>
 </resources>
