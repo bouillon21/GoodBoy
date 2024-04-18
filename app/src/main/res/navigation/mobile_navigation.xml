@@ -8,10 +8,10 @@
     <include app:graph="@navigation/breed_navigation" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.goodboy.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/vote_navigation"
+        android:name="com.example.goodboy.ui.vote.fragment.VoteFragment"
+        android:label="@string/title_vote"
+        tools:layout="@layout/fragment_vote" />
 
     <fragment
         android:id="@+id/navigation_notifications"

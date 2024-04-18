@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.breed_navigation, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.breed_navigation, R.id.vote_navigation, R.id.navigation_notifications
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -7,12 +7,11 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.goodboy.R
 import com.example.goodboy.data.model.Dog
-import com.example.goodboy.databinding.FragmentHomeBinding
+import com.example.goodboy.databinding.FragmentDogBreedsBinding
 import com.example.goodboy.ui.animator.DogBreedAnimator
 import com.example.goodboy.ui.breed.adapter.PreviewDogAdapter
 import com.example.goodboy.ui.breed.viewmodel.DogBreedsViewModel
@@ -21,7 +20,7 @@ import com.example.goodboy.ui.breed.viewstate.DogBreedsViewState
 
 class DogBreedsFragment : BaseFragment<DogBreedsViewModel.Action>() {
 
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentDogBreedsBinding
 
     private lateinit var adapter: PreviewDogAdapter
 
@@ -32,7 +31,7 @@ class DogBreedsFragment : BaseFragment<DogBreedsViewModel.Action>() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentDogBreedsBinding.inflate(inflater, container, false)
         layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         adapter = PreviewDogAdapter(homeViewModel::clickOnBreeds)
