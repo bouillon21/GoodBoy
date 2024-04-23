@@ -7,11 +7,7 @@
 
     <include app:graph="@navigation/breed_navigation" />
 
-    <fragment
-        android:id="@+id/vote_navigation"
-        android:name="com.example.goodboy.ui.vote.fragment.VoteFragment"
-        android:label="@string/title_vote"
-        tools:layout="@layout/fragment_vote" />
+    <include app:graph="@navigation/vote_navigation" />
 
     <fragment
         android:id="@+id/navigation_notifications"

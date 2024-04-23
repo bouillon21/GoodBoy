@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import coil.load
 import com.example.goodboy.R
+import com.example.goodboy.common.BaseFragment
 import com.example.goodboy.databinding.FragmentDogBreedsDetailBinding
 import com.example.goodboy.ui.breed.viewmodel.DogBreedsDetailViewModel
-import com.example.goodboy.ui.breed.viewmodel.DogBreedsViewModel
-import com.example.goodboy.ui.breed.viewstate.BaseViewState
 import com.example.goodboy.ui.breed.viewstate.DogBreedDetailViewState
 
-class DogBreedsDetailFragment : BaseFragment<DogBreedsViewModel.Action>() {
+class DogBreedsDetailFragment : BaseFragment() {
 
     private lateinit var binding: FragmentDogBreedsDetailBinding
     private lateinit var progress: FrameLayout
@@ -29,26 +28,24 @@ class DogBreedsDetailFragment : BaseFragment<DogBreedsViewModel.Action>() {
         progress = binding.progressOverlay.progress
 
         progress.visibility = View.VISIBLE
-        viewModel.dog.observeViewState(::handleViewState)
+        viewModel.dog.observe(::handleViewState)
 
         return binding.root
     }
 
-    private fun handleViewState(viewState: BaseViewState) {
-        if (viewState is DogBreedDetailViewState) {
-            val dog = viewState.dog
-            binding.apply {
-                dog?.let {
-                    breed.text = dog.breed
-                    dogImage.load(dog.image?.url ?: R.drawable.image_plug)
-                    idText.text = dog.breedId
-                    age.text = dog.age
-                    weight.text = dog.weight?.metric
-                    height.text = dog.height?.metric
-                    temperament.text = dog.temperament
-                    origin.text = dog.origin
-                    progress.visibility = View.GONE
-                }
+    private fun handleViewState(viewState: DogBreedDetailViewState) {
+        val dog = viewState.dog
+        binding.apply {
+            dog?.let {
+                breed.text = dog.breed
+                dogImage.load(dog.image?.url ?: R.drawable.image_plug)
+                idText.text = dog.breedId
+                age.text = dog.age
+                weight.text = dog.weight?.metric
+                height.text = dog.height?.metric
+                temperament.text = dog.temperament
+                origin.text = dog.origin
+                progress.visibility = View.GONE
             }
         }
     }

@@ -7,8 +7,7 @@ import com.example.goodboy.ui.breed.viewstate.DogBreedDetailViewState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 
 class DogBreedsDetailViewModel(getBreed: () -> String) : ViewModel() {
 
@@ -22,9 +21,10 @@ class DogBreedsDetailViewModel(getBreed: () -> String) : ViewModel() {
     }
 
     private fun updateDogByBreed(breed: String) {
-        repository.getDogByBreed(breed)
-            .map { mutableDog.emit(DogBreedDetailViewState(it.firstOrNull())) }
-            .launchIn(viewModelScope)
+        viewModelScope.launch {
+            repository.getDogByBreed(breed)
+                .let { mutableDog.emit(DogBreedDetailViewState(it.firstOrNull())) }
+        }
     }
 
 }

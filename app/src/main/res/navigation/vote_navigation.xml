@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vote_navigation"
+    app:startDestination="@id/voteFragment">
+
+    <fragment
+        android:id="@+id/voteFragment"
+        android:name="com.example.goodboy.ui.vote.fragment.VoteFragment"
+        android:label="@string/title_vote"
+        tools:layout="@layout/fragment_vote">
+        <action
+            android:id="@+id/action_voteFragment_to_myVoteFragment"
+            app:destination="@id/myVoteFragment"
+            app:popUpTo="@id/myVoteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myVoteFragment"
+        android:name="com.example.goodboy.ui.vote.fragment.MyVoteFragment"
+        android:label="@string/my_vote"
+        tools:layout="@layout/fragment_my_vote" />
+</navigation>

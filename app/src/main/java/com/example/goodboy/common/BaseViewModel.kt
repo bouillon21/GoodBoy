@@ -1,4 +1,4 @@
-package com.example.goodboy.ui.breed.viewmodel
+package com.example.goodboy.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

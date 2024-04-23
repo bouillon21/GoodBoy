@@ -7,61 +7,42 @@ import com.example.goodboy.data.model.Vote
 import com.example.goodboy.data.model.VoteMessage
 import com.example.goodboy.data.network.DogService
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 
 object DogBreedRepository {
 
     private val dogApi = DogService.getInstance().getAPI()
 
-    fun getBreedsList(): Flow<List<Dog>> {
-        return flow { emit(dogApi.getDogBreeds().shuffled()) }
-            .flowOn(Dispatchers.IO)
-            .catch { onMessageFail(it) }
+    suspend fun getBreedsList(): List<Dog> {
+        return withContext(Dispatchers.IO) { dogApi.getDogBreeds().shuffled() }
     }
 
-    fun getDogByBreed(breed: String): Flow<List<Dog>> {
-        return flow { emit(dogApi.getDogByBreed(breed)) }
-            .flowOn(Dispatchers.IO)
-            .catch { onMessageFail(it) }
+    suspend fun getDogByBreed(breed: String): List<Dog> {
+        return withContext(Dispatchers.IO) { dogApi.getDogByBreed(breed) }
     }
 
-    fun getRandomDogImage(): Flow<Image> {
-        return flow { emit(dogApi.getRandomDogImage()) }
-            .flowOn(Dispatchers.IO)
-            .catch { onMessageFail(it) }
+    suspend fun getRandomDogImage(): Image? {
+        return withContext(Dispatchers.IO) { dogApi.getRandomDogImage().firstOrNull() }
     }
 
-    fun getDogImageById(imageId: String): Flow<Image> {
-        return flow { emit(dogApi.getDogImageById(imageId)) }
-            .flowOn(Dispatchers.IO)
-            .catch { onMessageFail(it) }
+    suspend fun getDogImageById(imageId: String): Image {
+        return withContext(Dispatchers.IO) { dogApi.getDogImageById(imageId) }
     }
 
-    fun postDogVote(vote: Vote): Flow<VoteMessage> {
-        return flow { emit(dogApi.postDogVote(vote)) }
-            .flowOn(Dispatchers.IO)
-            .catch { onMessageFail(it) }
+    suspend fun postDogVote(vote: Vote): VoteMessage {
+        return withContext(Dispatchers.IO) { dogApi.postDogVote(vote) }
     }
 
-    fun deleteDogVote(voteId: Int): Flow<VoteMessage> {
-        return flow { emit(dogApi.deleteDogVote(voteId)) }
-            .flowOn(Dispatchers.IO)
-            .catch { onMessageFail(it) }
+    suspend fun deleteDogVote(voteId: Int): VoteMessage {
+        return withContext(Dispatchers.IO) { dogApi.deleteDogVote(voteId) }
     }
 
-    fun getMyDogVotes(): Flow<List<Vote>> {
-        return flow { emit(dogApi.getMyDogVotes()) }
-            .flowOn(Dispatchers.IO)
-            .catch { onMessageFail(it) }
+    suspend fun getMyDogVotes(): List<Vote> {
+        return withContext(Dispatchers.IO) { dogApi.getMyDogVotes() }
     }
 
-    fun getMyDogVoteById(voteId: Int): Flow<Vote> {
-        return flow { emit(dogApi.getMyDogVoteById(voteId)) }
-            .flowOn(Dispatchers.IO)
-            .catch { onMessageFail(it) }
+    suspend fun getMyDogVoteById(voteId: Int): Vote {
+        return withContext(Dispatchers.IO) { dogApi.getMyDogVoteById(voteId) }
     }
 
     private fun onMessageFail(msg: Throwable) {

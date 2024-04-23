@@ -20,7 +20,7 @@ interface DogApi {
     suspend fun getDogByBreed(@Query("q") breed: String): List<Dog>
 
     @GET("images/search")
-    suspend fun getRandomDogImage(): Image
+    suspend fun getRandomDogImage(): List<Image>
 
     @GET("images/{imageId}")
     suspend fun getDogImageById(@Path("imageId") imageId: String): Image

@@ -17,5 +17,8 @@ data class Vote(
     val value: Int? = null,
 
     @field:SerializedName("created_at")
-    val createdAt: String? = null
+    val createdAt: String? = null,
+
+    @field:SerializedName("image")
+    val image: Image? = null
 )

@@ -10,15 +10,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.goodboy.R
+import com.example.goodboy.common.BaseFragment
 import com.example.goodboy.data.model.Dog
 import com.example.goodboy.databinding.FragmentDogBreedsBinding
 import com.example.goodboy.ui.animator.DogBreedAnimator
 import com.example.goodboy.ui.breed.adapter.PreviewDogAdapter
 import com.example.goodboy.ui.breed.viewmodel.DogBreedsViewModel
-import com.example.goodboy.ui.breed.viewstate.BaseViewState
 import com.example.goodboy.ui.breed.viewstate.DogBreedsViewState
 
-class DogBreedsFragment : BaseFragment<DogBreedsViewModel.Action>() {
+class DogBreedsFragment : BaseFragment() {
 
     private lateinit var binding: FragmentDogBreedsBinding
 
@@ -46,19 +46,15 @@ class DogBreedsFragment : BaseFragment<DogBreedsViewModel.Action>() {
         }
 
         homeViewModel.actionFlow.observe(::handleAction)
-        homeViewModel.dogs.observeViewState(::handleViewState)
+        homeViewModel.dogs.observe(::handleViewState)
 
         return binding.root
     }
 
-    private fun handleViewState(viewState: BaseViewState) {
-        when (viewState) {
-            is DogBreedsViewState -> {
-                val dogBreeds = viewState.dogBreeds as ArrayList<Dog>?
-                adapter.dogs = dogBreeds ?: arrayListOf()
-                binding.dogBreedProgressBar.isVisible = adapter.itemCount == 0
-            }
-        }
+    private fun handleViewState(viewState: DogBreedsViewState) {
+        val dogBreeds = viewState.dogBreeds as ArrayList<Dog>?
+        adapter.dogs = dogBreeds ?: arrayListOf()
+        binding.dogBreedProgressBar.isVisible = adapter.itemCount == 0
     }
 
     private fun handleAction(action: DogBreedsViewModel.Action) {
